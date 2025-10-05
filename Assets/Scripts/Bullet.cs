@@ -49,28 +49,22 @@ public class Bullet : MonoBehaviour
 
     private void splitMeteor()
     {
-        // Verificamos que haya un prefab asignado
-        if (smallMeteorPrefab == null)
-        {
-            Debug.LogWarning("No se asignó el prefab de smallMeteorPrefab en el Inspector");
-            return;
-        }
 
         // Dirección de la bala (la bisectriz)
         Vector3 direction = targetVector.normalized;
 
-        // Calculamos las dos direcciones usando un ángulo fijo
+        // Calcula las dos direcciones usando un ángulo fijo
         Quaternion rotation1 = Quaternion.AngleAxis(angleOffset, Vector3.forward);
         Quaternion rotation2 = Quaternion.AngleAxis(-angleOffset, Vector3.forward);
 
         Vector3 dir1 = rotation1 * direction;
         Vector3 dir2 = rotation2 * direction;
 
-        // Creamos los dos meteoritos pequeños en la posición de impacto (posición de la bala)
+        // Crea los dos meteoritos pequeños en la posición de impacto (posición de la bala)
         GameObject small1 = Instantiate(smallMeteorPrefab, transform.position, Quaternion.identity);
         GameObject small2 = Instantiate(smallMeteorPrefab, transform.position, Quaternion.identity);
 
-        // Les damos una fuerza para que salgan en direcciones opuestas
+        // Fuerza para que salgan en direcciones opuestas
         Rigidbody rb1 = small1.GetComponent<Rigidbody>();
         Rigidbody rb2 = small2.GetComponent<Rigidbody>();
 
