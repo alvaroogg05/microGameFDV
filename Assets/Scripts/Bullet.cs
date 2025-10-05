@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
     * Variables para dividir el meteorito en dos más pequeños
     */
     public GameObject smallMeteorPrefab; // Prefab del meteorito pequeño
-    public float splitForce = 5f; // Qué tan rápido salen los pequeños
-    public float angleOffset = 30f; // Separación entre los dos mini meteoritos
+    public float splitForce = 5f; // Velocidad con la que salen los pequeños
+    public float angleOffset = 30f; // Separación entre los dos pequeños
 
     public Vector3 targetVector;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
